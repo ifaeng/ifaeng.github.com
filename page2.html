@@ -144,61 +144,184 @@
 
         <!-- Student 1 Information -->
         <div class="section-header">Student 1 Information</div>
-        <div class="form-row">
-            <div class="form-group">
-                <label for="student1Name">Student 1 Full Name</label>
-                <input type="text" id="student1Name" name="student1Name" placeholder="Enter Student 1's full name" required>
-            </div>
-            <div class="form-group">
-                <label for="student1Contact">Student 1 Contact (Phone or Email)</label>
-                <input type="text" id="student1Contact" name="student1Contact" placeholder="Enter Student 1's phone or email" required>
-            </div>
+        <div class="form-group">
+            <label for="student1Name">Student 1 Full Name</label>
+            <input type="text" id="student1Name" name="student1Name" placeholder="Enter Student 1's full name" required>
+        </div>
+        <div class="form-group">
+            <label for="student1ContactChoice">Student 1 Preferred Contact</label>
+            <select id="student1ContactChoice" name="student1ContactChoice" onchange="toggleStudent1ContactFields()" required>
+                <option value="" disabled selected>Select contact method</option>
+                <option value="phone">Phone</option>
+                <option value="email">Email</option>
+                <option value="both">Both</option>
+            </select>
+        </div>
+        <div class="form-group" id="student1PhoneGroup">
+            <label for="student1Phone">Student 1 Phone Number</label>
+            <input type="tel" id="student1Phone" name="student1Phone" placeholder="Enter Student 1's phone number">
+        </div>
+        <div class="form-group" id="student1EmailGroup">
+            <label for="student1Email">Student 1 Email Address</label>
+            <input type="email" id="student1Email" name="student1Email" placeholder="Enter Student 1's email">
         </div>
 
         <!-- Student 2 Information -->
         <div class="section-header">Student 2 Information</div>
-        <div class="form-row">
-            <div class="form-group">
-                <label for="student2Name">Student 2 Full Name</label>
-                <input type="text" id="student2Name" name="student2Name" placeholder="Enter Student 2's full name" required>
-            </div>
-            <div class="form-group">
-                <label for="student2Contact">Student 2 Contact (Phone or Email)</label>
-                <input type="text" id="student2Contact" name="student2Contact" placeholder="Enter Student 2's phone or email" required>
-            </div>
+        <div class="form-group">
+            <label for="student2Name">Student 2 Full Name</label>
+            <input type="text" id="student2Name" name="student2Name" placeholder="Enter Student 2's full name" required>
+        </div>
+        <div class="form-group">
+            <label for="student2ContactChoice">Student 2 Preferred Contact</label>
+            <select id="student2ContactChoice" name="student2ContactChoice" onchange="toggleStudent2ContactFields()" required>
+                <option value="" disabled selected>Select contact method</option>
+                <option value="phone">Phone</option>
+                <option value="email">Email</option>
+                <option value="both">Both</option>
+            </select>
+        </div>
+        <div class="form-group" id="student2PhoneGroup">
+            <label for="student2Phone">Student 2 Phone Number</label>
+            <input type="tel" id="student2Phone" name="student2Phone" placeholder="Enter Student 2's phone number">
+        </div>
+        <div class="form-group" id="student2EmailGroup">
+            <label for="student2Email">Student 2 Email Address</label>
+            <input type="email" id="student2Email" name="student2Email" placeholder="Enter Student 2's email">
         </div>
 
         <!-- Additional Info -->
         <div class="section-header">Additional Information</div>
+        <div class="form-row">
+            <div class="form-group" style="width: 48%;">
+                <label for="howDidYouHear">How did you hear about us?</label>
+                <select id="howDidYouHear" name="howDidYouHear" required>
+                    <option value="" disabled selected>Select an option</option>
+                    <option value="Social Media">Social Media</option>
+                    <option value="School">School</option>
+                    <option value="Friend/Colleague">Friend/ColTo create a form where students can select their preferred contact method (phone, email, or both) and dynamically show or hide the corresponding input fields, here’s how you can modify the code. The "How did you hear about us?" section is also updated to be half-width and includes "Radio Jingle" and "Email Invitation" options.
+
+### HTML + JavaScript Example:
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Igiehon Mathematics Tournament Registration</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f9f9f9; padding: 20px; }
+        .container { max-width: 700px; margin: auto; padding: 20px; background-color: #fff; border-radius: 8px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
+        h2 { text-align: center; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; font-weight: bold; margin-bottom: 5px; }
+        input, select { width: 100%; padding: 10px; font-size: 16px; }
+        .form-row { display: flex; justify-content: space-between; }
+        .form-row .form-group { width: 48%; }
+        button { display: block; margin: auto; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background-color: #2980b9; }
+    </style>
+    <script>
+        function toggleStudent1ContactFields() {
+            var contactChoice = document.getElementById("student1ContactChoice").value;
+            document.getElementById("student1PhoneGroup").style.display = (contactChoice === "phone" || contactChoice === "both") ? "block" : "none";
+            document.getElementById("student1EmailGroup").style.display = (contactChoice === "email" || contactChoice === "both") ? "block" : "none";
+        }
+
+        function toggleStudent2ContactFields() {
+            var contactChoice = document.getElementById("student2ContactChoice").value;
+            document.getElementById("student2PhoneGroup").style.display = (contactChoice === "phone" || contactChoice === "both") ? "block" : "none";
+            document.getElementById("student2EmailGroup").style.display = (contactChoice === "email" || contactChoice === "both") ? "block" : "none";
+        }
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <h2>Igiehon Mathematics Tournament 2024 Registration</h2>
+    <p><strong>Registration is free!</strong></p>
+    <p>Provide the following information about your school, teacher, and students.</p>
+
+    <!-- School Information -->
+    <div class="form-group">
+        <label for="schoolName">School Name</label>
+        <input type="text" id="schoolName" name="schoolName" required>
+    </div>
+
+    <!-- Teacher Information -->
+    <div class="form-row">
+        <div class="form-group">
+            <label for="teacherPhone">Teacher's Phone</label>
+            <input type="tel" id="teacherPhone" name="teacherPhone" placeholder="+234..." required>
+        </div>
+        <div class="form-group">
+            <label for="teacherEmail">Teacher's Email</label>
+            <input type="email" id="teacherEmail" name="teacherEmail" placeholder="teacher@school.com" required>
+        </div>
+    </div>
+
+    <!-- Student 1 Information -->
+    <div class="form-group">
+        <label for="student1Name">Student 1 Full Name</label>
+        <input type="text" id="student1Name" name="student1Name" required>
+    </div>
+    <div class="form-group">
+        <label for="student1ContactChoice">Student 1 Preferred Contact</label>
+        <select id="student1ContactChoice" name="student1ContactChoice" onchange="toggleStudent1ContactFields()" required>
+            <option value="" disabled selected>Select contact method</option>
+            <option value="phone">Phone</option>
+            <option value="email">Email</option>
+            <option value="both">Both</option>
+        </select>
+    </div>
+    <div class="form-group" id="student1PhoneGroup" style="display:none;">
+        <label for="student1Phone">Student 1 Phone</label>
+        <input type="tel" id="student1Phone" name="student1Phone">
+    </div>
+    <div class="form-group" id="student1EmailGroup" style="display:none;">
+        <label for="student1Email">Student 1 Email</label>
+        <input type="email" id="student1Email" name="student1Email">
+    </div>
+
+    <!-- Student 2 Information -->
+    <div class="form-group">
+        <label for="student2Name">Student 2 Full Name</label>
+        <input type="text" id="student2Name" name="student2Name" required>
+    </div>
+    <div class="form-group">
+        <label for="student2ContactChoice">Student 2 Preferred Contact</label>
+        <select id="student2ContactChoice" name="student2ContactChoice" onchange="toggleStudent2ContactFields()" required>
+            <option value="" disabled selected>Select contact method</option>
+            <option value="phone">Phone</option>
+            <option value="email">Email</option>
+            <option value="both">Both</option>
+        </select>
+    </div>
+    <div class="form-group" id="student2PhoneGroup" style="display:none;">
+        <label for="student2Phone">Student 2 Phone</label>
+        <input type="tel" id="student2Phone" name="student2Phone">
+    </div>
+    <div class="form-group" id="student2EmailGroup" style="display:none;">
+        <label for="student2Email">Student 2 Email</label>
+        <input type="email" id="student2Email" name="student2Email">
+    </div>
+
+    <!-- How did you hear about us -->
+    <div class="form-row">
         <div class="form-group">
             <label for="howDidYouHear">How did you hear about us?</label>
             <select id="howDidYouHear" name="howDidYouHear" required>
                 <option value="" disabled selected>Select an option</option>
                 <option value="Social Media">Social Media</option>
-                <option value="School">School</option>
-                <option value="Friend/Colleague">Friend/Colleague</option>
+                <option value="Radio Jingle">Radio Jingle</option>
+                <option value="Email Invitation">Email Invitation</option>
                 <option value="Other">Other</option>
             </select>
         </div>
+    </div>
 
-        <!-- Declaration -->
-        <div class="inline-form-group">
-            <input type="checkbox" id="declaration" name="declaration" required>
-            <label for="declaration">I confirm the information provided is accurate, and the teacher listed will accompany the students on the tournament day.</label>
-        </div>
-
-        <button type="submit">Submit</button>
-    </form>
+    <button type="submit">Submit</button>
 </div>
-
-<script>
-    document.getElementById('registrationForm').addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert("Form submitted successfully!");
-        // Redirect after form submission
-        window.location.href = "https://www.yourwebsite.com/thank-you";
-    });
-</script>
 
 </body>
 </html>
