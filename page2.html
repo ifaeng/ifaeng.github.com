@@ -29,6 +29,13 @@
             font-weight: 500;
             color: #2c3e50;
         }
+        .section-header {
+            font-size: 20px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #2c3e50;
+            color: #2c3e50;
+        }
         .form-group {
             margin-bottom: 20px;
         }
@@ -53,6 +60,13 @@
         }
         .form-row .form-group {
             width: 48%;
+        }
+        .inline-form-group {
+            display: flex;
+            align-items: center;
+        }
+        .inline-form-group input {
+            margin-right: 10px;
         }
         button {
             width: 100%;
@@ -92,8 +106,9 @@
     <strong>Registration Deadline:</strong> November 1, 2024<br>
     <strong>Eligibility:</strong> Open to all Senior Secondary Schools in Edo State</p>
 
+    <!-- School Information -->
+    <div class="section-header">School Information</div>
     <form id="registrationForm">
-        <!-- School Information -->
         <div class="form-group">
             <label for="schoolName">School Name</label>
             <input type="text" id="schoolName" name="schoolName" placeholder="Enter your school's name" required>
@@ -104,16 +119,24 @@
         </div>
 
         <!-- Teacher Information -->
+        <div class="section-header">Teacher Information</div>
         <div class="form-group">
             <label for="teacherName">Teacher's Full Name</label>
             <input type="text" id="teacherName" name="teacherName" placeholder="Enter teacher's full name" required>
         </div>
-        <div class="form-group">
-            <label for="teacherPhoneNumber">Teacher's Phone Number</label>
-            <input type="tel" id="teacherPhoneNumber" name="teacherPhoneNumber" placeholder="+234..." required>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="teacherPhoneNumber">Teacher's Phone Number</label>
+                <input type="tel" id="teacherPhoneNumber" name="teacherPhoneNumber" placeholder="+234..." required>
+            </div>
+            <div class="form-group">
+                <label for="teacherEmailAddress">Teacher's Email Address</label>
+                <input type="email" id="teacherEmailAddress" name="teacherEmailAddress" placeholder="teacher@school.com" required>
+            </div>
         </div>
 
         <!-- Student 1 Information -->
+        <div class="section-header">Student 1 Information</div>
         <div class="form-row">
             <div class="form-group">
                 <label for="student1Name">Student 1 Full Name</label>
@@ -126,6 +149,7 @@
         </div>
 
         <!-- Student 2 Information -->
+        <div class="section-header">Student 2 Information</div>
         <div class="form-row">
             <div class="form-group">
                 <label for="student2Name">Student 2 Full Name</label>
@@ -138,6 +162,7 @@
         </div>
 
         <!-- Additional Info -->
+        <div class="section-header">Additional Information</div>
         <div class="form-group">
             <label for="howDidYouHear">How did you hear about us?</label>
             <select id="howDidYouHear" name="howDidYouHear" required>
@@ -150,10 +175,9 @@
         </div>
 
         <!-- Declaration -->
-        <div class="form-group">
-            <label>
-                <input type="checkbox" id="declaration" name="declaration" required> I confirm the information provided is accurate, and the teacher listed will accompany the students on the tournament day.
-            </label>
+        <div class="inline-form-group">
+            <input type="checkbox" id="declaration" name="declaration" required>
+            <label for="declaration">I confirm the information provided is accurate, and the teacher listed will accompany the students on the tournament day.</label>
         </div>
 
         <button type="submit">Submit</button>
