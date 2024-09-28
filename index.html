@@ -886,6 +886,46 @@
                         <div class="col-12 form-group mb-3" data-for="textarea">
                             <textarea name="textarea" placeholder="School address inc LGA" data-form-field="textarea" class="form-control" id="textarea-contact-form-2-uoZw4qdK1F"></textarea>
                         </div>
+			    <!-- Teacher Information -->
+        <div class="section-header">Teacher Information</div>
+        <div class="form-group">
+            <label for="teacherName">Teacher's Full Name</label>
+            <input type="text" id="teacherName" name="teacherName" placeholder="Enter teacher's full name" required>
+        </div>
+        <div class="form-row">
+            <div class="form-group">
+                <label for="teacherPhoneNumber">Teacher's Phone Number</label>
+                <input type="tel" id="teacherPhoneNumber" name="teacherPhoneNumber" placeholder="+234..." required>
+            </div>
+            <div class="form-group">
+                <label for="teacherEmailAddress">Teacher's Email Address</label>
+                <input type="email" id="teacherEmailAddress" name="teacherEmailAddress" placeholder="teacher@school.com" required>
+            </div>
+        </div>
+
+        <!-- Student 1 Information -->
+        <div class="section-header">Student 1 Information</div>
+        <div class="form-group">
+            <label for="student1Name">Student 1 Full Name</label>
+            <input type="text" id="student1Name" name="student1Name" placeholder="Enter Student 1's full name" required>
+        </div>
+        <div class="form-group">
+            <label for="student1ContactChoice">Student 1 Preferred Contact</label>
+            <select id="student1ContactChoice" name="student1ContactChoice" onchange="toggleStudent1ContactFields()" required>
+                <option value="" disabled selected>Select contact method</option>
+                <option value="phone">Phone</option>
+                <option value="email">Email</option>
+                <option value="both">Both</option>
+            </select>
+        </div>
+        <div class="form-group" id="student1PhoneGroup">
+            <label for="student1Phone">Student 1 Phone Number</label>
+            <input type="tel" id="student1Phone" name="student1Phone" placeholder="Enter Student 1's phone number">
+        </div>
+        <div class="form-group" id="student1EmailGroup">
+            <label for="student1Email">Student 1 Email Address</label>
+            <input type="email" id="student1Email" name="student1Email" placeholder="Enter Student 1's email">
+        </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 align-center mbr-section-btn"><button type="submit" class="btn btn-primary display-7">Submit</button></div>
                     </div>
                 </form>
